@@ -1,18 +1,17 @@
 // Libraries
-const path = require('path');
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackNotifierPlugin = require('webpack-notifier');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WebpackNotifierPlugin = require('webpack-notifier')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 // Files
 const utils = require('./utils')
-const plugins = require('../postcss.config');
+const plugins = require('../postcss.config')
 
 // Configuration
 module.exports = env => {
-
   return {
     context: path.resolve(__dirname, '../src'),
     entry: {
@@ -20,18 +19,18 @@ module.exports = env => {
     },
     output: {
       path: path.resolve(__dirname, '../dist'),
-      publicPath: '/',
+      publicPath: '',
       filename: 'assets/js/[name].[hash:7].bundle.js'
     },
     devServer: {
-      contentBase: path.resolve(__dirname, '../src'),
+      contentBase: path.resolve(__dirname, '../src')
       // hot: true,
     },
     resolve: {
       extensions: ['.js'],
       alias: {
         source: path.resolve(__dirname, '../src'), // Relative path of src
-        images: path.resolve(__dirname, '../src/assets/images'), // Relative path of images
+        images: path.resolve(__dirname, '../src/assets/images') // Relative path of images
       }
     },
 
@@ -150,4 +149,4 @@ module.exports = env => {
       })
     ]
   }
-};
+}
